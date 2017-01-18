@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>SD TopSpots -Angular</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- bower:css -->
+	<!-- endbower -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/app/styles/styles.css">
+	<!-- endinject -->
+	
+</head>
+<body ng-controller="MainController" >
+	<h1>San Diego Top-Spots</h1>
+    <div id='mainCont'>
+        <table  class="table table-bordered table-striped">
+            <thead class="table">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Location</th>
+            </thead>
+            <tbody>
+	            <tr ng-repeat="x in topspots">
+	            	<td>{{x.name}}</td>
+	            	<td>{{x.description}}</td>
+	            	<td><a class="btn btn-primary" target="_blank" href="https://www.google.com/maps?q={{x.location[0]}},{{x.location[1]}}">Location</a></td>
+	            </tr>
+            </tbody>
+            </table>
+            <div class="form-inline" >
+	            <div class="form-group">
+	            	<input class='form-control' type='text' ng-model="name" class="form-control" placeholder="Top Spot Name"/>
+	            </div>
+	            <div class="form-group">
+	            	<input class='form-control' type='text' ng-model="description" class="form-control" placeholder="Description"/>
+	            </div>
+	            <div class="form-group">
+	            	<input class='form-control' type='text' ng-model="location" class="form-control"  placeholder="Lat,Lng"/>
+	            </div>
+	        <div class="form-group">
+	        <input  ng-click="addrow()" id="subBtn" type='button' value="Submit" class="btn btn-primary"></input>
+	        </div>
+        </div><!--close addRow-->
+     	
+
+    </div> 
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+
+	<!-- inject:js -->
+	<script src="/app/app.js"></script>
+	<!-- endinject -->
+	
+</body>
+</html>
